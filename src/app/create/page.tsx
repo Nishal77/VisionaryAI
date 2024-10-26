@@ -12,11 +12,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Switch } from "@/components/ui/switch";
 import Image from "next/image";
 import { useToast } from "@/hooks/use-toast";
-import { ExternalLink, Download } from "lucide-react";
+import { Download } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 
 const formSchema = z.object({
@@ -52,7 +50,6 @@ export default function ImageGenerator() {
   const [outputImg, setOutputImg] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [aspectRatio, setAspectRatio] = useState("1:1");
-  const [isPublic, setIsPublic] = useState(true);
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
