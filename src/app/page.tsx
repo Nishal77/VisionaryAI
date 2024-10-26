@@ -28,7 +28,6 @@ import Image3 from "@/assets/image3.png";
 import Image4 from "@/assets/image4.png";
 import Image5 from "@/assets/image5.png";
 import Image6 from "@/assets/image6.png";
-import Image7 from "@/assets/image1.jpg";
 
 const reviews = [
   {
