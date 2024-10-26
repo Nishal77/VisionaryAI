@@ -1,18 +1,10 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Sparkles } from "../components/Sparkles";
 import {
-  Cpu,
-  Database,
-  Film,
   PlusIcon,
-  Play,
-  X,
-  Users,
-  Gift,
   Brain,
   Download,
   Twitter,
@@ -24,38 +16,12 @@ import {
   Zap,
   Check,
 } from "lucide-react";
-import Image1 from "@/assets/image1.png";
-import Image2 from "@/assets/image2.png";
-import Image3 from "@/assets/image3.png";
-import Image4 from "@/assets/image4.png";
-import Image5 from "@/assets/image5.png";
-import Image6 from "@/assets/image6.png";
-import Image7 from "@/assets/image7.png";
-import Image8 from "@/assets/image8.png";
+
 import MainImg from "@/assets/MainImg.png";
-import { useState } from "react";
 import { Details } from "@/components/Details";
 import { XMarkIcon } from "@heroicons/react/20/solid";
-import clsx from "clsx";
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
-
-const ImageWithOverlay = ({ src, alt }) => (
-  <div className="relative w-full px-1.5">
-    <div className="relative overflow-hidden rounded-lg shadow-lg">
-      <img
-        src={src}
-        alt={alt}
-        className="w-full h-[200px] sm:h-[220px] md:h-[240px] lg:h-[260px] object-cover"
-      />
-      <div className="absolute top-0 right-0 m-2 bg-black/75 px-2 py-1 rounded-full backdrop-blur-sm">
-        <p className="text-xs sm:text-sm text-white font-medium whitespace-nowrap">
-          Generated using ARTSAFARI.AI
-        </p>
-      </div>
-    </div>
-  </div>
-);
 
 const reviews = [
   {
@@ -356,11 +322,14 @@ export default function Home() {
 
         {/* image grid */}
         <div className="container mx-auto p-8">
-            <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold">Transform Your Ideas into Reality with Visionary.ai</h2>
-        <p className="text-gray-500">Experience the future of AI-powered image generation</p>
-    
-  </div>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold">
+              Transform Your Ideas into Reality with Visionary.ai
+            </h2>
+            <p className="text-gray-500">
+              Experience the future of AI-powered image generation
+            </p>
+          </div>
           <div className="grid grid-cols-4 gap-4 max-w-6xl mx-auto">
             {images.map((image) => (
               <div
@@ -401,14 +370,13 @@ export default function Home() {
         </div>
 
         <div className="text-center mb-8">
-    <h2 className="text-3xl font-bold">Pricing</h2>
-    <p className="text-gray-500">Choose the plan that fits your needs</p>
-  </div>
+          <h2 className="text-3xl font-bold">Pricing</h2>
+          <p className="text-gray-500">Choose the plan that fits your needs</p>
+        </div>
         <div className="flex items-center justify-center w-full max-w-5xl mx-auto px-4">
-          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full lg:w-4/5">
             {/* Free Plan */}
-            
+
             <div className="bg-black/5 border border-green-500/20 rounded-lg p-6 w-full relative flex flex-col">
               <div className="mb-4">
                 <div className="text-2xl font-bold mb-2">Free</div>
