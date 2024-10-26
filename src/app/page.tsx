@@ -453,42 +453,40 @@ export default function Home() {
             <p className="text-gray-400 mb-8">
               Frequently Asked Questions about our AI Image Generator
             </p>
-            <Details className="space-y-3">
-              {items.map((item, index) => (
-                <Details.Item
-                  key={index}
-                  className="overflow-hidden rounded-2xl bg-[#1A1A1A] transition-all duration-300"
-                >
-                  {({ isActive, toggle }) => (
-                    <>
-                      <div
-                        className="flex cursor-pointer items-center justify-between p-4"
-                        onClick={toggle}
-                      >
-                        <div className="text-base text-gray-300">
-                          {item.title}
-                        </div>
-                        {isActive ? (
-                          <XMarkIcon className="h-5 w-5 text-gray-400" />
-                        ) : (
-                          <PlusIcon className="h-5 w-5 text-gray-400" />
-                        )}
-                      </div>
-                      <Details.Content
-                        isActive={isActive}
-                        className="transition-all duration-300"
-                      >
-                        <div className="px-4 pb-4">
-                          <p className="text-sm text-gray-400">
-                            {item.content}
-                          </p>
-                        </div>
-                      </Details.Content>
-                    </>
-                  )}
-                </Details.Item>
-              ))}
-            </Details>
+            <Details.Item
+              key={index}
+              className="overflow-hidden rounded-2xl bg-[#1A1A1A] transition-all duration-300"
+            >
+              {({
+                isActive,
+                toggle,
+              }: {
+                isActive: boolean;
+                toggle: () => void;
+              }) => (
+                <>
+                  <div
+                    className="flex cursor-pointer items-center justify-between p-4"
+                    onClick={toggle}
+                  >
+                    <div className="text-base text-gray-300">{item.title}</div>
+                    {isActive ? (
+                      <XMarkIcon className="h-5 w-5 text-gray-400" />
+                    ) : (
+                      <PlusIcon className="h-5 w-5 text-gray-400" />
+                    )}
+                  </div>
+                  <Details.Content
+                    isActive={isActive}
+                    className="transition-all duration-300"
+                  >
+                    <div className="px-4 pb-4">
+                      <p className="text-sm text-gray-400">{item.content}</p>
+                    </div>
+                  </Details.Content>
+                </>
+              )}
+            </Details.Item>
           </div>
         </div>
 
