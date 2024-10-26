@@ -22,43 +22,50 @@ import { Details } from "@/components/Details";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
+import Image1 from "@/assets/image1.png";
+import Image2 from "@/assets/image2.png";
+import Image3 from "@/assets/image3.png";
+import Image4 from "@/assets/image4.png";
+import Image5 from "@/assets/image5.png";
+import Image6 from "@/assets/image6.png";
+import Image7 from "@/assets/image1.jpg";
 
 const reviews = [
   {
     name: "Arjun Patel",
     username: "Software Engineer",
     body: "I was skeptical at first, but this image generator exceeded all my expectations. It revolutionized the way we create visuals.",
-    img: "https://randomuser.me/api/portraits/men/1.jpg",
+    img: "/path/image.jpg",
   },
   {
     name: "Emily Johnson",
     username: "Marketing Manager",
     body: "I couldn't be happier with this image generator. It streamlined our design process and saved us countless hours. Highly recommended!",
-    img: "https://randomuser.me/api/portraits/women/2.jpg",
+    img: "/path/image.jpg",
   },
   {
     name: "Ravi Kumar",
     username: "@ravi",
     body: "This image generator is a game-changer. The quality and variety of images are outstanding.",
-    img: "https://randomuser.me/api/portraits/men/3.jpg",
+    img: "/path/image.jpg",
   },
   {
     name: "Jane Smith",
     username: "@jane",
     body: "The image generator is simply amazing. It has become an essential tool in our creative workflow.",
-    img: "https://randomuser.me/api/portraits/women/4.jpg",
+    img: "/path/image.jpg",
   },
   {
     name: "Priya Singh",
     username: "@priya",
     body: "I am thoroughly impressed with this image generator. It has made our projects look professional and polished.",
-    img: "https://randomuser.me/api/portraits/women/5.jpg",
+    img: "/path/image.jpg",
   },
   {
     name: "James Brown",
     username: "@james",
     body: "This image generator is fantastic. It has significantly improved the quality of our visual content.",
-    img: "https://randomuser.me/api/portraits/men/6.jpg",
+    img: "/path/image.jpg",
   },
 ];
 
@@ -88,38 +95,50 @@ const images = [
   {
     id: 1,
     // span: 'col-span-2 row-span-2',
-    src: "https://picsum.photos/600/600?random=1",
+    src: Image1,
     alt: "Large featured image",
+    width: 600,
+    height: 600,
   },
   {
     id: 2,
     span: "col-span-1 row-span-1",
-    src: "https://picsum.photos/300/300?random=2",
+    src: Image2,
     alt: "Small square image",
+    width: 300,
+    height: 300,
   },
   {
     id: 3,
     span: "col-span-1 row-span-1",
-    src: "https://picsum.photos/300/300?random=3",
+    src: Image3,
     alt: "Small square image",
+    width: 300,
+    height: 300,
   },
   {
     id: 4,
     span: "col-span-1 row-span-2",
-    src: "https://picsum.photos/300/600?random=4",
+    src: Image4,
     alt: "Vertical rectangle image",
+    width: 300,
+    height: 600,
   },
   {
     id: 5,
     span: "col-span-2 row-span-1",
-    src: "https://picsum.photos/600/300?random=5",
+    src: Image5,
     alt: "Horizontal rectangle image",
+    width: 600,
+    height: 300,
   },
   {
     id: 6,
     span: "col-span-1 row-span-1",
-    src: "https://picsum.photos/300/300?random=6",
+    src: Image6,
     alt: "Small square image",
+    width: 300,
+    height: 300,
   },
 ];
 
@@ -178,7 +197,7 @@ const ReviewCard = ({
           className="h-10 w-10 rounded-full sm:h-12 sm:w-12"
           width="48"
           height="48"
-          alt=""
+          alt="images"
           src={img}
         />
         <div className="flex flex-col">
@@ -332,12 +351,17 @@ export default function Home() {
                 key={image.id}
                 className={`${image.span} relative group overflow-hidden rounded-xl`}
               >
-                <Image src={image.src} className="w-full h-full object-cover " />
+                <Image
+                  alt={image.alt}
+                  src={image.src}
+                  width={image.width}
+                  height={image.height}
+                  className="w-full h-full object-cover"
+                />
               </div>
             ))}
           </div>
         </div>
-
         {/* marque */}
         <div className="relative mx-auto w-full max-w-6xl flex flex-col items-center justify-center overflow-hidden rounded-lg  py-8 md:shadow-xl">
           <div className="flex w-full flex-col gap-8">
