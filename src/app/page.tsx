@@ -174,7 +174,7 @@ const ReviewCard = ({
 
       {/* Author info */}
       <div className="flex items-center gap-3">
-        <img
+        <Image
           className="h-10 w-10 rounded-full sm:h-12 sm:w-12"
           width="48"
           height="48"
@@ -332,7 +332,7 @@ export default function Home() {
                 key={image.id}
                 className={`${image.span} relative group overflow-hidden rounded-xl`}
               >
-                <img src={image.src} className="w-full h-full object-cover " />
+                <Image src={image.src} className="w-full h-full object-cover " />
               </div>
             ))}
           </div>
