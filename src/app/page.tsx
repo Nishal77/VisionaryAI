@@ -153,13 +153,11 @@ const ReviewCard = ({
   name,
   username,
   body,
-  company,
 }: {
   img: string;
   name: string;
   username: string;
   body: string;
-  company: string;
 }) => {
   return (
     <figure
