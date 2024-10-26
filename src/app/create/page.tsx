@@ -28,10 +28,9 @@ const aspectRatios = [
   ["5:4", "3:4", "4:3"],
 ];
 
-// Helper functions for aspect ratio styling
 const getPreviewRatioStyle = (ratio: string) => {
   const [width, height] = ratio.split(":").map(Number);
-  const scale = 16; // Smaller preview size
+  const scale = 16;
   return {
     width: `${(width / Math.max(width, height)) * scale}px`,
     height: `${(height / Math.max(width, height)) * scale}px`,
@@ -88,61 +87,81 @@ export default function ImageGenerator() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setLoading(true);
+      setOutputImg(null); // Clear previous image while loading
+
       const response = await fetch("/api/image", {
         method: "POST",
-        body: JSON.stringify({ ...values, aspectRatio, isPublic }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt: values.prompt,
+          aspectRatio,
+        }),
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
-      if (response.status === 200) {
+
+      if (data.url) {
         setOutputImg(data.url);
       } else {
-        toast({ variant: "destructive", description: data.error });
+        toast({
+          variant: "destructive",
+          description: data.error || "Failed to generate image",
+        });
       }
     } catch (error) {
-      console.error(error);
+      console.error("Generation failed:", error);
+      toast({
+        variant: "destructive",
+        description: "Failed to generate image. Please try again.",
+      });
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <div className="w-full max-w-[1200px] grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
         {/* Generator Controls */}
-        <div className="bg-neutral-900 rounded-lg p-6 space-y-6 ">
+        <div className="bg-neutral-900 rounded-lg p-6 space-y-6">
           <div>
             <h1 className="text-xl font-semibold text-white">
               ArtSafari AI Image Generator
             </h1>
             <p className="text-sm text-neutral-400">
-              Select a style, type to get your own ai image
+              Select a style, type to get your own AI image
             </p>
           </div>
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <div className="space-y-2">
-                <FormField
-                  control={form.control}
-                  name="prompt"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <div className="relative">
-                          <Textarea
-                            {...field}
-                            placeholder="Describe your Artsafari AI image. Default: a person"
-                            className="min-h-[120px] resize-none bg-neutral-800 border-neutral-700 text-white rounded-lg p-4 pt-8 placeholder-neutral-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          />
-                          <div className="absolute top-3 left-4 text-xs font-medium text-neutral-400">
-                            Prompt
-                          </div>
+              <FormField
+                control={form.control}
+                name="prompt"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <div className="relative">
+                        <Textarea
+                          {...field}
+                          placeholder="Describe your Artsafari AI image. Default: a person"
+                          className="min-h-[120px] resize-none bg-neutral-800 border-neutral-700 text-white rounded-lg p-4 pt-8 placeholder-neutral-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        />
+                        <div className="absolute top-3 left-4 text-xs font-medium text-neutral-400">
+                          Prompt
                         </div>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
+                      </div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
               <div className="space-y-3">
                 <label className="text-sm font-medium text-white">
@@ -190,8 +209,6 @@ export default function ImageGenerator() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between py-0 border-y border-neutral-800"></div>
-
               <Button
                 type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white"
@@ -200,55 +217,26 @@ export default function ImageGenerator() {
                 {loading ? (
                   <>
                     <svg
-                      fill="none"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      width="16"
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
                       xmlns="http://www.w3.org/2000/svg"
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      className="animate-spin mr-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
                     >
-                      <clipPath id="clip0_1449_422">
-                        <path d="m0 0h16v16h-16z" />
-                      </clipPath>
-                      <g
-                        clipPath="url(#clip0_1449_422)"
-                        clipRule="evenodd"
-                        fill="#000"
-                        fillRule="evenodd"
-                      >
-                        <path d="m8 0c.55228 0 1 .447715 1 1v3c0 .55228-.44772 1-1 1s-1-.44772-1-1v-3c0-.552285.44772-1 1-1z" />
-                        <path
-                          d="m8 11c.55228 0 1 .4477 1 1v3c0 .5523-.44772 1-1 1s-1-.4477-1-1v-3c0-.5523.44772-1 1-1z"
-                          opacity=".4"
-                        />
-                        <path
-                          d="m16 8c0 .55228-.4477 1-1 1h-3c-.5523 0-1-.44772-1-1s.4477-1 1-1h3c.5523 0 1 .44772 1 1z"
-                          opacity=".2"
-                        />
-                        <path
-                          d="m5 8c0 .55228-.44772 1-1 1h-3c-.552285 0-1.00000007-.44772-1.00000004-1 .00000002-.55228.44771504-1 1.00000004-1h3c.55228 0 1 .44772 1 1z"
-                          opacity=".6"
-                        />
-                        <path
-                          d="m13.6569 13.6568c-.3905.3906-1.0237.3906-1.4142 0l-2.1213-2.1213c-.39055-.3905-.39055-1.0237 0-1.4142.3905-.39051 1.0237-.39051 1.4142 0l2.1213 2.1213c.3905.3906.3905 1.0237 0 1.4142z"
-                          opacity=".3"
-                        />
-                        <path
-                          d="m5.87859 5.87868c-.39053.39052-1.02369.39052-1.41422 0l-2.12132-2.12132c-.39052-.39053-.39052-1.02369 0-1.41422.39053-.39052 1.02369-.39052 1.41422 0l2.12132 2.12132c.39052.39053.39052 1.02369 0 1.41422z"
-                          opacity=".7"
-                        />
-                        <path
-                          d="m2.29289 13.6066c-.39052-.3905-.39052-1.0237 0-1.4142l2.12132-2.1213c.39053-.39054 1.02369-.39054 1.41422 0 .39052.3905.39052 1.0237 0 1.4142l-2.12132 2.1213c-.39053.3905-1.02369.3905-1.41422 0z"
-                          opacity=".5"
-                        />
-                        <path
-                          d="m10.071 5.82845c-.39055-.39053-.39056-1.02369 0-1.41422l2.1213-2.12132c.3905-.39052 1.0237-.39052 1.4142 0 .3905.39053.3905 1.02369 0 1.41422l-2.1213 2.12132c-.3905.39052-1.0237.39052-1.4142 0z"
-                          opacity=".1"
-                        />
-                      </g>
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
                     </svg>
-                    Loading...
+                    Generating...
                   </>
                 ) : (
                   "Generate"
@@ -298,7 +286,9 @@ export default function ImageGenerator() {
               </div>
             ) : (
               <div className="absolute inset-0 w-full h-full flex items-center justify-center text-neutral-400">
-                Your generated image will appear here
+                {loading
+                  ? "Generating your image..."
+                  : "Your generated image will appear here"}
               </div>
             )}
           </div>
