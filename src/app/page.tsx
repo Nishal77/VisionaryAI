@@ -29,14 +29,12 @@ const reviews = [
     username: "Software Engineer",
     body: "I was skeptical at first, but this image generator exceeded all my expectations. It revolutionized the way we create visuals.",
     img: "https://randomuser.me/api/portraits/men/1.jpg",
-    company: "slack",
   },
   {
     name: "Emily Johnson",
     username: "Marketing Manager",
     body: "I couldn't be happier with this image generator. It streamlined our design process and saved us countless hours. Highly recommended!",
     img: "https://randomuser.me/api/portraits/women/2.jpg",
-    company: "asana",
   },
   {
     name: "Ravi Kumar",
