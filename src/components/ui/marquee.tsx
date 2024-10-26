@@ -6,13 +6,13 @@ interface MarqueeProps {
   pauseOnHover?: boolean;
   children?: React.ReactNode;
   repeat?: number;
-  [key: string]: any;
+  [key: string]: unknown; // Change 'any' to 'unknown'
 }
 
 export default function Marquee({
   className,
   reverse,
-  pauseOnHover = false,
+  // pauseOnHover = false, // Remove this line
   children,
   repeat = 4,
   ...props
