@@ -60,7 +60,7 @@ export default function Header() {
                   <path d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
                 <span className="ml-2 text-xl font-bold text-white">
-                Visionary.AI
+                  Visionary.AI
                 </span>
               </div>
             </Link>
@@ -183,7 +183,7 @@ export default function Header() {
         <DialogContent className="sm:max-w-md bg-black/95 backdrop-blur-md border border-gray-800 text-white">
           <DialogHeader className="flex flex-col items-center space-y-4 pt-8">
             <DialogTitle className="text-2xl font-semibold">
-            ImagineX
+              Visionary.AI
             </DialogTitle>
             <p className="text-gray-400 text-sm">Unleash Your Imagination</p>
           </DialogHeader>
@@ -194,7 +194,7 @@ export default function Header() {
                        rounded-full py-6 flex items-center justify-center space-x-2"
             >
               <img
-                src="/google-icon.png"
+                 src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png"
                 alt="Google"
                 className="w-5 h-5"
                 onError={(e) => {

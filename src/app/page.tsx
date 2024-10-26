@@ -2,9 +2,9 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Sparkles } from "../components/Sparkles";
 import {
-  Image,
   Cpu,
   Database,
   Film,
@@ -32,6 +32,7 @@ import Image5 from "@/assets/image5.png";
 import Image6 from "@/assets/image6.png";
 import Image7 from "@/assets/image7.png";
 import Image8 from "@/assets/image8.png";
+import MainImg from "@/assets/MainImg.png";
 import { useState } from "react";
 import { Details } from "@/components/Details";
 import { XMarkIcon } from "@heroicons/react/20/solid";
@@ -231,98 +232,6 @@ const ReviewCard = ({
   );
 };
 
-const ImageSlider = () => {
-  const [isPaused, setIsPaused] = useState(false);
-  const images = [
-    Image1,
-    Image2,
-    Image3,
-    Image4,
-    Image5,
-    Image6,
-    Image7,
-    Image8,
-  ];
-
-  return (
-    <div className="relative w-full max-w-5xl mx-auto mt-8">
-      <style jsx>{`
-        .slider-container {
-          width: 100%;
-          overflow: hidden;
-        }
-        .slider-content {
-          display: flex;
-          width: 200%;
-          animation: bannermove 20s linear infinite;
-        }
-        .slider-content.paused {
-          animation-play-state: paused;
-        }
-        .slider-section {
-          width: 100%;
-        }
-        .slider-list {
-          display: flex;
-          list-style-type: none;
-          padding-left: 0;
-          margin: 0;
-          gap: 1px;
-        }
-        .slider-item {
-          width: 250%;
-          padding: 0 4px;
-        }
-        .slider-image {
-          width: 100%;
-          height: 400px;
-          object-fit: cover;
-          border-radius: 8px;
-        }
-        @keyframes bannermove {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-      `}</style>
-
-      <div className="slider-container">
-        <div className="slider-content">
-          <div className="slider-section">
-            <ul className="slider-list">
-              {images.map((img, index) => (
-                <li key={`first-${index}`} className="slider-item">
-                  <img
-                    src={img.src}
-                    alt={`Slide ${index + 1}`}
-                    className="slider-image"
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="slider-section">
-            <ul className="slider-list">
-              {images.map((img, index) => (
-                <li key={`second-${index}`} className="slider-item">
-                  <img
-                    src={img.src}
-                    alt={`Slide ${index + 1}`}
-                    className="slider-image"
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 export default function Home() {
   const items = [
     {
@@ -390,7 +299,21 @@ export default function Home() {
         </div>
 
         {/* Image slider section */}
-        <ImageSlider />
+        <div className="w-full px-4 py-16">
+          <div className="max-w-6xl mx-auto">
+            <div className="relative w-full h-auto rounded-2xl overflow-hidden">
+              <Image
+                src={MainImg}
+                alt="Slider Image"
+                layout="responsive" // Use responsive layout
+                width={700} // Set a default width
+                height={475} // Set a default height
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </div>
 
         {/* how does it work */}
         <div className="py-16 px-4 w-full bg-black">
@@ -433,6 +356,11 @@ export default function Home() {
 
         {/* image grid */}
         <div className="container mx-auto p-8">
+            <div className="text-center mb-8">
+        <h2 className="text-3xl font-bold">Transform Your Ideas into Reality with Visionary.ai</h2>
+        <p className="text-gray-500">Experience the future of AI-powered image generation</p>
+    
+  </div>
           <div className="grid grid-cols-4 gap-4 max-w-6xl mx-auto">
             {images.map((image) => (
               <div
@@ -472,9 +400,15 @@ export default function Home() {
           <div className="pointer-events-none absolute inset-y-0 right-0 w-[40%] bg-gradient-to-l from-background" />
         </div>
 
+        <div className="text-center mb-8">
+    <h2 className="text-3xl font-bold">Pricing</h2>
+    <p className="text-gray-500">Choose the plan that fits your needs</p>
+  </div>
         <div className="flex items-center justify-center w-full max-w-5xl mx-auto px-4">
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full lg:w-4/5">
             {/* Free Plan */}
+            
             <div className="bg-black/5 border border-green-500/20 rounded-lg p-6 w-full relative flex flex-col">
               <div className="mb-4">
                 <div className="text-2xl font-bold mb-2">Free</div>
