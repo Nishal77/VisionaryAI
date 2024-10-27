@@ -18,9 +18,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "ArtSafari - AI Art Gallery",
+  title: "Visionary.AI - The Art Gallery",
   description:
-    "Embark on a visual journey with ArtSafari - where AI transforms your imagination into stunning masterpieces. Explore, create, and immerse yourself in a world of limitless artistic possibilities.",
+    "Embark on a visual journey with Visionary.AI - where AI transforms your imagination into stunning masterpieces. Explore, create, and immerse yourself in a world of limitless artistic possibilities.",
   keywords: [
     "AI art",
     "image generation",
@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     "visual inspiration",
   ],
   openGraph: {
-    title: "ArtSafari - AI-Powered Art Generation",
+    title: "Visionary.AI-Powered Art Generation",
     description:
       "Transform your ideas into captivating visuals with our cutting-edge AI art generator. Discover a new realm of creativity at ArtSafari.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ArtSafari - Where Imagination Meets AI",
+    title: "Visionary.AI - Where Imagination Meets AI",
     description:
       "Create, explore, and share AI-generated art. Join the visual revolution with ArtSafari.",
     images: ["/twitter-image.jpg"],

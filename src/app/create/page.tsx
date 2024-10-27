@@ -150,7 +150,7 @@ export default function ImageGenerator() {
                       <div className="relative">
                         <Textarea
                           {...field}
-                          placeholder="Describe your Artsafari AI image. Default: a person"
+                          placeholder="Describe your visionary-ai image. Default: a person"
                           className="min-h-[120px] resize-none bg-neutral-800 border-neutral-700 text-white rounded-lg p-4 pt-8 placeholder-neutral-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         />
                         <div className="absolute top-3 left-4 text-xs font-medium text-neutral-400">
