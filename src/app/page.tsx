@@ -240,33 +240,31 @@ export default function Home() {
       <div className="pt-14 sm:pt-16">
         {/* Hero Section */}
         {/* Hero Section */}
-        <section className="py-8 sm:py-12 md:py-24 text-center justify-center flex flex-col items-center">
-          <div className="text-center z-10 px-4 max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight mx-auto">
-              Build your dream site
-              <br />
-              without the hassle of coding
-            </h1>
-            <p className="text-lg text-gray-300 mb-8 mx-auto max-w-2xl">
-              No coding skills needed. Build your dream website hassle-free,
-              enjoying a seamless and efficient process that saves time and
-              effort.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/create" className="w-full sm:w-auto">
-                <Button className="bg-white text-black hover:bg-gray-200">
-                  Start for free
-                </Button>
-              </Link>
-              <Button
-                variant="outline"
-                className="bg-transparent border-white text-white hover:bg-white hover:text-black"
-              >
-                Explore
-              </Button>
-            </div>
-          </div>
-        </section>
+        <section className="py-6 sm:py-8 md:py-16 text-center">
+      <div className="text-center z-10 px-4 max-w-3xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
+          Build your dream site without the hassle of coding
+        </h1>
+        <p className="text-base sm:text-lg text-gray-300 mb-6 mx-auto max-w-2xl">
+          No coding skills needed. Build your dream website hassle-free,
+          enjoying a seamless and efficient process that saves time and effort.
+        </p>
+        <div className="flex flex-row justify-center gap-3">
+          <Link href="/create">
+            <Button size="sm" className="bg-white text-black hover:bg-gray-200 px-4 py-2 h-9">
+              Start for free
+            </Button>
+          </Link>
+          <Button
+            size="sm"
+            variant="outline"
+            className="bg-transparent border-white text-white hover:bg-white hover:text-black px-4 py-2 h-9"
+          >
+            Explore
+          </Button>
+        </div>
+      </div>
+    </section>
 
         {/* Sparkles Effect Section */}
         <div className="relative h-48 sm:h-64 md:h-80 w-full">
