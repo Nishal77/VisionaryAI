@@ -31,13 +31,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Visionary.AI-Powered Art Generation",
     description:
-      "Transform your ideas into captivating visuals with our cutting-edge AI art generator. Discover a new realm of creativity at ArtSafari.",
+      "Transform your ideas into captivating visuals with our cutting-edge AI art generator. Discover a new realm of creativity at Visionary-ai.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Visionary.AI - Where Imagination Meets AI",
     description:
-      "Create, explore, and share AI-generated art. Join the visual revolution with ArtSafari.",
+      "Create, explore, and share AI-generated art. Join the visual revolution with Visionary-ai.",
     images: ["/twitter-image.jpg"],
   },
 };
