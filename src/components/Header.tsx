@@ -153,7 +153,7 @@ export default function Header() {
                   <div className="flex flex-col space-y-3 pt-4 border-t border-gray-800 mt-4">
                     <Button
                       variant="ghost"
-                      className="bg-white text-black hover:bg-gray-100 rounded-full justify-start px-0 hover:bg-transparent"
+                      className="bg-white text-black hover:bg-gray-100 rounded-full justify-center px-0 hover:bg-transparent"
                       onClick={() => {
                         setIsMenuOpen(false);
                         setShowLoginModal(true);
@@ -167,7 +167,7 @@ export default function Header() {
                   <Button
                     onClick={() => signOut()}
                     variant="ghost"
-                    className="text-black hover:text-black justify-start px-0 bg-red-500 mt-4"
+                    className="text-black  hover:text-black justify-center px-0 bg-red-500 mt-4"
                   >
                     Sign Out
                   </Button>
