@@ -70,7 +70,7 @@ export default function ImageGenerator() {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `Artsafari-ai-image-${Date.now()}.png`;
+      link.download = `Visionary.AI-image-${Date.now()}.png`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -132,7 +132,7 @@ export default function ImageGenerator() {
         <div className="bg-neutral-900 rounded-lg p-6 space-y-6">
           <div>
             <h1 className="text-xl font-semibold text-white">
-              ArtSafari AI Image Generator
+            Visionary.AI Image Generator
             </h1>
             <p className="text-sm text-neutral-400">
               Select a style, type to get your own AI image
@@ -259,7 +259,7 @@ export default function ImageGenerator() {
         {/* Result Display */}
         <div className="bg-neutral-900 rounded-lg p-6 space-y-4">
           <h2 className="text-xl font-semibold text-white">
-            ArtSafari AI Image Generator Result
+          Visionary.AI Image Generator Result
           </h2>
           <div
             className="relative bg-neutral-800 rounded-lg overflow-hidden"
